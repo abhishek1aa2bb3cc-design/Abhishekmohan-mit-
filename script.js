@@ -1,10 +1,1 @@
-// Updated script.js file to fix syntax errors and properly close code blocks
-
-function exampleFunction() {
-    console.log('This is an example function');
-    if (true) {
-        console.log('Inside the if block');
-    } // Properly closing the if block
-} // Properly closing the function block
-
-exampleFunction();
+Dark Mode Toggle Button at top right, Date & Time display at bottom left, and Back to Top button at bottom right
