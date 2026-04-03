@@ -82,4 +82,20 @@ if (visitorName) {
     console.log(`Welcome ${visitorName}! 👋`);
     alert(`Hello ${visitorName}! Welcome to my website! 🎉`);
 }
+// Typing Effect for Heading
+const heading = document.querySelector('h1');
+const text = heading.textContent;
+heading.textContent = '';
+
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        heading.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100);
+    }
+}
+
+typeEffect();
 });
