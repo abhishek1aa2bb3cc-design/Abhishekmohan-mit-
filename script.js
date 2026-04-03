@@ -54,4 +54,26 @@ toggleDarkMode.addEventListener('click', function() {
         toggleDarkMode.textContent = '🌙 Dark Mode';
     }
 });
+// Display Current Date & Time
+const timeDisplay = document.createElement('div');
+timeDisplay.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+`;
+
+document.body.appendChild(timeDisplay);
+
+function updateTime() {
+    const now = new Date();
+    timeDisplay.textContent = now.toLocaleString();
+}
+
+updateTime();
+setInterval(updateTime, 1000);
 });
