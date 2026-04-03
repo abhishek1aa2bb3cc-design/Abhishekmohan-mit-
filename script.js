@@ -76,4 +76,10 @@ function updateTime() {
 
 updateTime();
 setInterval(updateTime, 1000);
+// Welcome Alert
+const visitorName = prompt('What is your name?');
+if (visitorName) {
+    console.log(`Welcome ${visitorName}! 👋`);
+    alert(`Hello ${visitorName}! Welcome to my website! 🎉`);
+}
 });
