@@ -22,4 +22,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show alert when page loads
     console.log('Page loaded successfully!');
+// Dark Mode Toggle
+const toggleDarkMode = document.createElement('button');
+toggleDarkMode.textContent = '🌙 Dark Mode';
+toggleDarkMode.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+`;
+
+document.body.appendChild(toggleDarkMode);
+
+let isDarkMode = false;
+
+toggleDarkMode.addEventListener('click', function() {
+    isDarkMode = !isDarkMode;
+    
+    if (isDarkMode) {
+        document.body.style.backgroundColor = '#1a1a1a';
+        document.body.style.color = '#ffffff';
+        toggleDarkMode.textContent = '☀️ Light Mode';
+    } else {
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#333333';
+        toggleDarkMode.textContent = '🌙 Dark Mode';
+    }
+});
 });
