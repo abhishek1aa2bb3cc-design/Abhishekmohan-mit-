@@ -29,6 +29,47 @@ toggleButton.addEventListener('click', () => {
 
 // Date & Time Display
 const dateTimeDisplay = document.createElement('div');
+let isDragging = false;
+let offsetX = 0, offsetY = 0;
+
+// 🖱️ Mouse Events (Desktop)
+dateTimeDisplay.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - dateTimeDisplay.offsetLeft;
+  offsetY = e.clientY - dateTimeDisplay.offsetTop;
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    dateTimeDisplay.style.left = (e.clientX - offsetX) + 'px';
+    dateTimeDisplay.style.top = (e.clientY - offsetY) + 'px';
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+
+// 📱 Touch Events (Mobile)
+dateTimeDisplay.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - dateTimeDisplay.offsetLeft;
+  offsetY = touch.clientY - dateTimeDisplay.offsetTop;
+});
+
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    const touch = e.touches[0];
+    dateTimeDisplay.style.left = (touch.clientX - offsetX) + 'px';
+    dateTimeDisplay.style.top = (touch.clientY - offsetY) + 'px';
+  }
+});
+
+document.addEventListener('touchend', () => {
+  isDragging = false;
+});
 dateTimeDisplay.style.position = 'fixed';
 dateTimeDisplay.style.bottom = '10px';
 dateTimeDisplay.style.left = '10px';
